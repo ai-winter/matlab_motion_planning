@@ -26,6 +26,8 @@ function [pose, flag] = pid(path, start, goal)
     e_v_ = 0; i_v_ = 0;
     e_w_ = 0; i_w_ = 0;
 
+    k_theta = 0.5;
+
     iter = 0;
     % main loop
     while (1)
@@ -36,17 +38,29 @@ function [pose, flag] = pid(path, start, goal)
 
         % break until goal reached
         if (norm([robot.x, robot.y] - goal(:, 1:2)) < p_precision)
-%             && ...            abs(robot.theta - goal(3)) < o_precision
+%             && ... abs(robot.theta - goal(3)) < o_precision
             break;
         end
 
         % find next tracking point
-        while (plan_idx < path_length)
-%             next_plan_idx = min(path_length - 1, plan_idx + 1);
-%             theta_d = atan2(path(next_plan_idx, 2) - path(plan_idx, 2), ...
-%                             path(next_plan_idx, 1) - path(plan_idx, 1));
-            theta_d = atan2(path(plan_idx, 2) - robot.y, ...
-                            path(plan_idx, 1) - robot.x);
+        while (plan_idx <= path_length)
+            theta_err = atan2(path(plan_idx, 2) - robot.y, ...
+                              path(plan_idx, 1) - robot.x);
+
+            next_plan_idx = plan_idx + 1;
+            if (next_plan_idx <= path_length)
+                theta_trj = atan2(path(next_plan_idx, 2) - path(plan_idx, 2), ...
+                                  path(next_plan_idx, 1) - path(plan_idx, 1));
+            end
+
+            if (abs(theta_err - theta_trj) > pi)
+                if (theta_err > theta_trj)
+                    theta_trj = theta_trj + 2 * pi;
+                else
+                    theta_err = theta_err + 2 * pi;
+                end
+            end
+            theta_d = k_theta * theta_err + (1 - k_theta) * theta_trj;
             % in body frame
             b_x_d = path(plan_idx, 1) - robot.x;
             b_y_d = path(plan_idx, 2) - robot.y;
@@ -92,7 +106,7 @@ function [v, e_v_, i_v_] = linearController(robot, b_x_d, b_y_d, dt, e_v_, i_v_)
 
     k_v_p = 1.00;
     k_v_i = 0.00;
-    k_v_d = 0.01;
+    k_v_d = 0.00;
     v_inc = k_v_p * e_v_ + k_v_i * i_v_ + k_v_d * d_v;
 
     v = robot.v + v_inc;
