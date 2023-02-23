@@ -1,35 +1,35 @@
 function [path, flag, cost, expand] = a_star(map, start, goal)
-%%
+%
 % @file: a_star.m
 % @breif: A* motion planning
 % @paper: A Formal Basis for the heuristic Determination of Minimum Cost Paths
 % @author: Winter
 % @update: 2023.1.29
 
-%{ 
-    ============ OPEN and CLOSED==============
-    [x, y, g, h, px, py]
-    =======================================
-%}
+%
+%   == OPEN and CLOSED ==
+%   [x, y, g, h, px, py]
+%   =====================
+%
 
-%%
 % initialize
-expand= [];                                                   % expand zone
-OPEN  = [start, 0, h(start, goal), start];      % OPEN set with priority 
-CLOSED = [];                                                % CLOSED set
-flag  = false;
-neighbor  = [-1, 1, 1.414;...  
-                0, 1, 1;...
-                1, 1, 1.414;...
-              -1, 0, 1;...
-                1, 0, 1;...
-              -1, -1, 1.414;...
-                0, -1, 1;...
-                1, -1, 1.414];
-neighbor_num = length(neighbor(:, 1));
+expand = [];
+OPEN = [start, 0, h(start, goal), start];
+CLOSED = [];
+flag = false;
+neighbor  = [-1,  1, 1.414;...
+              0,  1, 1;...
+              1,  1, 1.414;...
+             -1,  0, 1;...
+              1,  0, 1;...
+             -1, -1, 1.414;...
+              0, -1, 1;...
+              1, -1, 1.414];
+% neighbor_num = length(neighbor(:, 1));
+neighbor_num = size(neighbor, 1);
 cost = 0;
 
-while ~isempty(OPEN(:, 1))
+while ~isempty(OPEN)
     % pop
     f = OPEN(:, 3) + OPEN(:, 4);
     [~, index] = min(f);
@@ -41,9 +41,6 @@ while ~isempty(OPEN(:, 1))
         continue
     end
 
-    % update expand zone
-    expand = [expand; cur_node(1:2)];
-
     % goal found
     if cur_node(1) == goal(1) && cur_node(2) == goal(2)
         CLOSED = [cur_node; CLOSED];
@@ -51,14 +48,18 @@ while ~isempty(OPEN(:, 1))
         cost = cur_node(3);
         break
     end
-    
+
+    % update expand zone
+    expand = [expand; cur_node(1:2)];
+
     % explore neighbors
-    for i=1:neighbor_num        
-        node_n = [cur_node(1) + neighbor(i, 1), ...
-                          cur_node(2) + neighbor(i, 2), ...
-                          cur_node(3) + neighbor(i, 3), ...
-                          0, cur_node(1), cur_node(2)
-                          ];
+    for i = 1:neighbor_num        
+        node_n = [
+                cur_node(1) + neighbor(i, 1), ...
+                cur_node(2) + neighbor(i, 2), ...
+                cur_node(3) + neighbor(i, 3), ...
+                0, ...
+                cur_node(1), cur_node(2)];
         node_n(4) = h(node_n(1:2), goal);
         
         % exists in CLOSED set

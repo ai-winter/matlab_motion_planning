@@ -40,9 +40,6 @@ while ~isempty(OPEN)
         continue
     end
 
-    % update expand zone
-    expand = [expand; cur_node(1:2)];
-
     % goal found
     if cur_node(1) == goal(1) && cur_node(2) == goal(2)
         CLOSED = [cur_node; CLOSED];
@@ -50,7 +47,10 @@ while ~isempty(OPEN)
         cost = cur_node(3);
         break
     end
-    
+
+    % update expand zone
+    expand = [expand; cur_node(1:2)];
+
     % explore neighbors
     for i = 1:neighbor_num
         node_n = [

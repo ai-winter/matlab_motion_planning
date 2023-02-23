@@ -1,11 +1,10 @@
 function animation_dwa(pose, traj, delta, record_video)
-%%
+%
 % @file: animation_dwa.m
 % @breif: DWA algorithm animation
 % @author: Winter
 % @update: 2023.1.30
-
-%%
+%
     hold on
     [frames, ~] = size(pose);
 
