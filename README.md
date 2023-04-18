@@ -94,7 +94,7 @@ Planner      |    Version    | Animation
 ## Local Planner
 | Planner |  Version    | Animation                                             |
 | ------- | -------------------------------------------------------- | -------------------------------------------------------- | 
-| **PID**   | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
+| **PID**   | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/pid.m) | ![pid_matlab.gif](gif/pid_matlab.gif)
 | **APF**   | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 | **DWA**  | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/dwa.m) | ![dwa_matlab.gif](gif/dwa_matlab.gif)
 | **TEB** | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
