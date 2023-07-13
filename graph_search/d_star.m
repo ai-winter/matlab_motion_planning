@@ -1,135 +1,102 @@
-function [path, flag, cost, expand] = d_star(map, start, goal)
-%
-% @file: D_star.m
+function [path, flag, cost, EXPAND] = d_star(map, start, goal)
+% @file: d_star.m
 % @breif: D* motion planning
-% @paper:
-% @author:
-% @update:
+% @paper: Optimal and Efficient Path Planning for Partially-Known Environments.
+% @author: Zhanyu Guo
+% @update: 2023.7.13
 
 %
-%   == OPEN and CLOSED ==
-%   [x, y, g, h, px, py]
-%   =====================
+%   ========= MAP =========
+%   [x, y, t, h, k, px, py]
+%   =======================
+%   NEW = 0, OPEN = 1, CLOSED = 2
 %
-
-
-
 
 % initialize
-expand = [];
-OPEN = [start, 0, h(start, goal), start];
-CLOSED = [];
-flag = false;
-neighbor  = [-1,  1, 1.414;...
-              0,  1, 1;...
-              1,  1, 1.414;...
-             -1,  0, 1;...
-              1,  0, 1;...
-             -1, -1, 1.414;...
-              0, -1, 1;...
-              1, -1, 1.414];
-% neighbor_num = length(neighbor(:, 1));
-neighbor_num = size(neighbor, 1);
-cost = 0;
+EXPAND = [];
 
-while ~isempty(OPEN)
-    % pop
-    f = OPEN(:, 3) + OPEN(:, 4);
-    [~, index] = min(f);
-    cur_node = OPEN(index, :);
-    OPEN(index, :) = []; 
-    
-    % exists in CLOSED set
-    if loc_list(cur_node, CLOSED, [1, 2])
-        continue
+siz = size(map);
+MAP = zeros(siz(1) * siz(2), 7);
+for y = 1:cols
+    for x = 1:rows
+        ind = sub2ind(siz, x, y);
+        MAP(ind, 1) = x;    % x
+        MAP(ind, 2) = y;    % y
+        MAP(ind, 3) = 0;    % t
+        MAP(ind, 4) = Inf;  % h
+        MAP(ind, 5) = Inf;  % k
     end
+end
 
-    % goal found
-    if cur_node(1) == goal(1) && cur_node(2) == goal(2)
-        CLOSED = [cur_node; CLOSED];
-        flag = true;
-        cost = cur_node(3);
+MAP = insert(goal, 0, MAP, siz);
+
+start_ind = sub2ind(siz, start(1), start(2));
+
+while 1
+    [MAP, k_min] = processState(MAP, siz);
+    if k_min == -1 || MAP(start_ind, 3) == 2
         break
     end
-
-    % update expand zone
-    expand = [expand; cur_node(1:2)];
-
-    % explore neighbors
-    for i = 1:neighbor_num        
-        node_n = [
-                cur_node(1) + neighbor(i, 1), ...
-                cur_node(2) + neighbor(i, 2), ...
-                cur_node(3) + neighbor(i, 3), ...
-                0, ...
-                cur_node(1), cur_node(2)];
-        node_n(4) = h(node_n(1:2), goal);
-        
-        % exists in CLOSED set
-        if loc_list(cur_node, CLOSED, [1, 2])
-            continue
-        end
-        
-        % obstacle
-        if map(node_n(1), node_n(2)) == 2
-            continue;
-        end
-       
-        % goal found
-        if cur_node(1) == goal(1) && cur_node(2) == goal(2)
-            CLOSED = [cur_node; CLOSED];
-            flag = true;
-            cost = cur_node(3);
-            break
-        end
-        
-        % update OPEN set
-        OPEN = [OPEN; node_n];
-    end
-    CLOSED = [cur_node; CLOSED];
 end
 
-% extract path
-path = extract_path(CLOSED, start);
-end
 
 %%
-function h_val = h(cur_node, goal)
-% @breif: heuristic function(Manhattan distance)
-    h_val = abs(cur_node(1) - goal(1)) + abs(cur_node(2) - goal(2));
+function MAP = insert(node, h_new, MAP, siz)
+%
+%   ========= MAP =========
+%   [x, y, t, h, k, px, py]
+%   =======================
+%   NEW = 0, OPEN = 1, CLOSED = 2
+%
+ind = sub2ind(siz, node(1), node(2));
+if MAP(ind, 3) == 0
+    MAP(ind, 5) = h_new;
+elseif MAP(ind, 3) == 1
+    MAP(ind, 5) = min(MAP(ind, 5), h_new);
+elseif MAP(ind, 3) == 2
+    MAP(ind, 5) = min(MAP(ind, 4), h_new);
 end
 
-function index = loc_list(node, list, range)
-% @breif: locate the node in given list
-    num = size(list);
-    index = 0;
-    if ~num(1)
-        return
-    else  
-        for i=1:num(1)
-            if isequal(node(range), list(i, range))
-                index = i;
-                return;
-            end
-        end
-    end
+MAP(ind, 4) = h_new;
+MAP(ind, 3) = 1;
 end
 
-function path = extract_path(close, start)
-% @breif: Extract the path based on the CLOSED set.
-    path  = [];               
-    closeNum = length(close(:, 1));
-    index = 1;
-    while 1
-        path = [path; close(index, 1:2)];
-        if isequal(close(index, 1:2), start)   
-            break;
-        end
-        for i=1:closeNum
-            if isequal(close(i, 1:2), close(index, 5:6))
-                index = i;
-                break;
-            end
-        end
-    end
+function [MAP, k_min] = processState(MAP, siz)
+% get open
+OPEN = MAP(MAP(:, 3) == 1, :);
+if isempty(OPEN)
+    k_min = -1;
+    return
+end
+
+% get node with min k in open
+[k_old, open_ind] = min(OPEN(:, 5));
+map_ind = sub2ind(siz, OPEN(open_ind, 1), OPEN(open_ind, 2));
+
+% set to closed
+MAP(map_ind, 3) = 2;
+
+% get neighbors
+% TODO
+
+if k_old < MAP(map_ind, 4)
+    
+end
+
+if k_old == MAP(map_ind, 4)
+
+else
+
+end
+
+% get open
+OPEN = MAP(MAP(:, 3) == 1, :);
+if isempty(OPEN)
+    k_min = -1;
+    return
+end
+
+% get node with min k in open
+[k_min, ~] = min(OPEN(:, 5));
+
 end
