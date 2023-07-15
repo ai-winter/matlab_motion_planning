@@ -6,6 +6,9 @@ function s = plot_square(pts, map_size, G, color)
 % @update: 2023.1.29
 
 %%
+    if isempty(pts)
+        return
+    end
     [ptsX, ptsY] = index_to_map(pts(:, 1) + map_size(1) * (pts(:, 2) - 1), map_size, G);
     ptsNum = length(ptsX);
     for i=1:ptsNum
