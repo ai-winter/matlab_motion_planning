@@ -10,9 +10,8 @@
 
 This repository provides the implement of common `Motion planning` algorithm, welcome your star & fork & PR.
 
-The theory analysis can be found at [motion-planning](https://blog.csdn.net/frigidwinter/category_11410243.html)
+This repository provides the implementation of common Motion Planning algorithms. The theory analysis can be found at [motion-planning](https://blog.csdn.net/frigidwinter/category_11410243.html). Furthermore, we provide [ROS C++](https://github.com/ai-winter/ros_motion_planning) and [Python](https://github.com/ai-winter/python_motion_planning) version.
 
-We also provide ROS C++ version at [https://github.com/ai-winter/ros_motion_planning](https://github.com/ai-winter/ros_motion_planning) and Python Version at [https://github.com/ai-winter/matlab_motion_planning](https://github.com/ai-winter/python_motion_planning)
 
 # Quick Start
 
@@ -85,7 +84,8 @@ Planner      |    Version    | Animation
 **JPS**                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/jps.m) |  ![jps_matlab.png](gif/jps_matlab.png)
 **D***              | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 **LPA***                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
-**D\* Lite**                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) |![Status](https://img.shields.io/badge/gif-none-yellow) 
+**D\* Lite**                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) |![Status](https://img.shields.io/badge/gif-none-yellow)
+**Voronoi**                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/voronoi_plan.m) |  ![voronoi_matlab.png](gif/voronoi_matlab.png)
 **RRT**                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/sample_search/rrt.m) | ![rrt_matlab.png](gif/rrt_matlab.png)
 **RRT***               | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/sample_search/rrt_star.m) |![rrt_star_matlab.png](gif/rrt_star_matlab.png)
 **Informed RRT**        | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/sample_search/informed_rrt.m) |![informed_rrt_matlab.png](gif/informed_rrt_matlab.png)

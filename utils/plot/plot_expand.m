@@ -14,6 +14,10 @@ function plot_expand(expand, map_size, G, planner_name)
         plot_square(expand, map_size, G, "#ddd");
     end
 
+    if strcmp(planner_name, 'voronoi_plan')
+        plot(expand(1:2, :) + G / 2, expand(3:4, :) + G / 2,  'Color', "#ddd");
+    end
+    
     if strcmp(planner_name, 'rrt') || ...
        strcmp(planner_name, 'rrt_star')  || ...
        strcmp(planner_name, 'informed_rrt') || ...
