@@ -82,7 +82,7 @@ Planner      |    Version    | Animation
 **Dijkstra**     | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/dijkstra.m) | ![dijkstra_matlab.png](gif/dijkstra_matlab.png)
 **A***     | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/a_star.m) | ![a_star.png](gif/a_star_matlab.png)
 **JPS**                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/jps.m) |  ![jps_matlab.png](gif/jps_matlab.png)
-**D***              | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
+**D***              | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/d_star.m) | ![d_star_matlab.png](gif/d_star_matlab.png) 
 **LPA***                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 **D\* Lite**                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) |![Status](https://img.shields.io/badge/gif-none-yellow)
 **Voronoi**                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/voronoi_plan.m) |  ![voronoi_matlab.png](gif/voronoi_matlab.png)
