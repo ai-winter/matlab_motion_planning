@@ -220,12 +220,23 @@ end
 function flag = isCollision(node1, node2, map)
 flag = false;
 
-if map(node1(1), node1(2)) == 2
+if map(node1(1), node1(2)) == 2 || map(node2(1), node2(2)) == 2
     flag = true;
+    return
 end
 
-if map(node2(1), node2(2)) == 2
-    flag = true;
+if node1(1) ~= node2(1) && node1(2) ~= node2(2)
+    if node2(1) - node1(1) == node1(2) - node2(2)
+        s1 = [min(node1(1), node2(1)), min(node1(2), node2(2))];
+        s2 = [max(node1(1), node2(1)), max(node1(2), node2(2))];
+    else
+        s1 = [min(node1(1), node2(1)), max(node1(2), node2(2))];
+        s2 = [max(node1(1), node2(1)), min(node1(2), node2(2))];
+    end
+
+    if map(s1(1), s1(2)) == 2 || map(s2(1), s2(2)) == 2
+        flag = true;
+    end
 end
 
 end
