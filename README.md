@@ -83,6 +83,7 @@ Planner      |    Version    | Animation
 **A***     | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/a_star.m) | ![a_star.png](gif/a_star_matlab.png)
 **JPS**                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/jps.m) |  ![jps_matlab.png](gif/jps_matlab.png)
 **Theta\***                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/theta_star.m) |  ![theta_star_matlab.png](gif/theta_star_matlab.png)
+**Lazy Theta\***                 | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/lazy_theta_star.m) |  ![lazy_theta_star_matlab.png](gif/lazy_theta_star_matlab.png)
 **D***              |  [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/global_planner/graph_search/d_star.m) |  ![d_star_matlab.gif](gif/d_star_matlab.gif) 
 **LPA***                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 **D\* Lite**                 | ![Status](https://img.shields.io/badge/develop-v1.0-red) |![Status](https://img.shields.io/badge/gif-none-yellow)
@@ -120,6 +121,7 @@ Planner      |    Version    | Animation
 * [D*: ](http://web.mit.edu/16.412j/www/html/papers/original_dstar_icra94.pdf) Optimal and Efficient Path Planning for Partially-Known Environments
 * [D* Lite: ](http://idm-lab.org/bib/abstracts/papers/aaai02b.pdf) D* Lite
 * [Theta*: ](https://www.jair.org/index.php/jair/article/view/10676) Theta*: Any-Angle Path Planning on Grids
+* [Lazy Theta*: ](https://ojs.aaai.org/index.php/AAAI/article/view/7566) Lazy Theta*: Any-Angle Path Planning and Path Length Analysis in 3D
 
 ## Sample-based Planning
 * [RRT: ](http://msl.cs.uiuc.edu/~lavalle/papers/Lav98c.pdf) Rapidly-Exploring Random Trees: A New Tool for Path Planning
