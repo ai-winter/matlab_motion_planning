@@ -1,7 +1,29 @@
-function [pose, flag] = pid(path, start, goal)
+function [pose, traj, flag] = pid_plan(start, goal, varargin)
+%%
+% @file: pid_plan.m
+% @breif: PID motion planning
+% @paper: The PID to path tracking
+% @author: Winter, Gzy
+% @update: 2023.1.30
+
+%%
+    p = inputParser;           
+    addParameter(p, 'path', "none");
+    addParameter(p, 'map', "none");
+    parse(p, varargin{:});
+
+    if isstring(p.Results.path)
+        exception = MException('MyErr:InvalidInput', 'parameter `path` must be set, using global planner.');
+        throw(exception);
+    end
+    
+    % path
+    path = p.Results.path;
+     
     % return value
     flag = false;
-    pose = [];    
+    pose = [];
+    traj = [];
 
     % reverse path
     path = flipud(path);
@@ -38,7 +60,7 @@ function [pose, flag] = pid(path, start, goal)
 
         % break until goal reached
         if (norm([robot.x, robot.y] - goal(:, 1:2)) < p_precision)
-%             && ... abs(robot.theta - goal(3)) < o_precision
+            flag = true;
             break;
         end
 

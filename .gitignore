@@ -2,6 +2,7 @@
 __pycache__/
 build/
 devel/
+video/
 
 # local env files
 .env.local

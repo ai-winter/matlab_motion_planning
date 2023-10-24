@@ -1,7 +1,7 @@
-function animation_dwa(pose, traj, delta, record_video)
+function animation(planner_name, pose, traj, delta, record_video)
 %
-% @file: animation_dwa.m
-% @breif: DWA algorithm animation
+% @file: animation.m
+% @breif: local planning algorithm animation
 % @author: Winter
 % @update: 2023.1.30
 %
@@ -9,14 +9,16 @@ function animation_dwa(pose, traj, delta, record_video)
     [frames, ~] = size(pose);
 
     if record_video
-        process = VideoWriter('./animation/video/dwa.mp4', 'MPEG-4');
+        process = VideoWriter(sprintf("%s%s%s", "./utils/animation/video/", planner_name, ".mp4"), 'MPEG-4');
         open(process);
         movie = moviein(frames);
     end
 
     for i=1:frames
         handler = plot_robot([pose(i, 2) + delta, pose(i, 1) + delta, pose(i, 3)], 0.8, 0.4, 'r');
-        handler2 = plot_trajectory(traj(i).info, delta);
+        if ~isempty(traj)
+            handler2 = plot_trajectory(traj(i).info, delta);
+        end
         plot(pose(i, 2) + delta, pose(i, 1) + delta, 'Marker', '.', 'color', "#f00");
         drawnow;
         if record_video
@@ -24,7 +26,10 @@ function animation_dwa(pose, traj, delta, record_video)
             writeVideo(process, movie(:, i));
         end
         delete(handler);
-        delete(handler2);
+        
+        if ~isempty(traj)
+            delete(handler2);
+        end
     end
     
     if record_video

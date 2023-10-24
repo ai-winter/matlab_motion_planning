@@ -1,12 +1,32 @@
-function [pose, traj, flag] = dwa(map, start, goal, kinematic)
+function [pose, traj, flag] = dwa_plan(start, goal, varargin)
 %%
-% @file: dwa.m
+% @file: dwa_plan.m
 % @breif: DWA motion planning
 % @paper: The Dynamic Window Approach to Collision Avoidance
 % @author: Winter
 % @update: 2023.1.30
 
 %%
+    p = inputParser;           
+    addParameter(p, 'path', "none");
+    addParameter(p, 'map', "none");
+    parse(p, varargin{:});
+
+    if isstring(p.Results.map)
+        exception = MException('MyErr:InvalidInput', 'parameter `map` must be set.');
+        throw(exception);
+    end
+    
+    map = p.Results.map;
+    
+    % kinematic
+    kinematic.V_MAX               = 1.0;                      %   maximum velocity [m/s]
+    kinematic.W_MAX              = 20.0 * pi /180;   %   maximum rotation speed[rad/s]
+    kinematic.V_ACC                 = 0.2;                     %   acceleration [m/s^2]
+    kinematic.W_ACC                = 50.0 * pi /180;   %   angular acceleration [rad/s^2]
+    kinematic.V_RESOLUTION  = 0.01;                   %   velocity resolution [m/s]
+    kinematic.W_RESOLUTION = 1.0 * pi /180;     %  rotation speed resolution [rad/s]]
+    
     % return value
     flag = false;
     pose = [];

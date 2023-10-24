@@ -96,9 +96,9 @@ Planner      |    Version    | Animation
 ## Local Planner
 | Planner |  Version    | Animation                                             |
 | ------- | -------------------------------------------------------- | -------------------------------------------------------- | 
-| **PID**   | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/pid.m) | ![pid_matlab.gif](gif/pid_matlab.gif)
-| **APF**   | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
-| **DWA**  | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/dwa.m) | ![dwa_matlab.gif](gif/dwa_matlab.gif)
+| **PID**   | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/pid_plan.m) | ![pid_matlab.gif](gif/pid_matlab.gif)
+| **APF**   | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/apf_plan.m) | ![apf_matlab.gif](gif/apf_matlab.gif) 
+| **DWA**  | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/dwa_plan.m) | ![dwa_matlab.gif](gif/dwa_matlab.gif)
 | **TEB** | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 | **MPC** | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 | **Lattice** | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
@@ -135,3 +135,4 @@ Planner      |    Version    | Animation
 ## Local Planning
 
 * [DWA: ](https://www.ri.cmu.edu/pub_files/pub1/fox_dieter_1997_1/fox_dieter_1997_1.pdf) The Dynamic Window Approach to Collision Avoidance
+* [APF: ](https://ieeexplore.ieee.org/document/1087247)Real-time obstacle avoidance for manipulators and mobile robots
