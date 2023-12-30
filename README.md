@@ -117,7 +117,7 @@ Planner      |    Version    | Animation
 
 | Planner | Version   | Animation                                |
 | ------- | -------------------------------------------------------- | -------------------------------------------------------- 
-| **Polynomia** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/polynomial_curve.m) | ![polynomial_curve_matlab.png](gif/polynomial_curve_matlab.gif)
+| **Polynomia** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/polynomial_curve.m) | ![polynomial_curve_matlab.png](gif/polynomial_curve_matlab.png)
 <!-- | **Bezier** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/bezier_curve.m) | ![bezier_curve_matlab.png](gif/bezier_curve_matlab.png)
 | **Cubic Spline** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/cubic_spline.m) | ![cubic_spline_matlab.png](gif/cubic_spline_matlab.png)
 | **BSpline** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/bspline_curve.m) | ![bspline_curve_matlab.png](gif/bspline_curve_matlab.png)
@@ -147,3 +147,6 @@ Planner      |    Version    | Animation
 
 * [DWA: ](https://www.ri.cmu.edu/pub_files/pub1/fox_dieter_1997_1/fox_dieter_1997_1.pdf) The Dynamic Window Approach to Collision Avoidance
 * [APF: ](https://ieeexplore.ieee.org/document/1087247)Real-time obstacle avoidance for manipulators and mobile robots
+
+## Curve Generation
+* [Dubins: ]() On curves of minimal length with a constraint on average curvature, and with prescribed initial and terminal positions and tangents
