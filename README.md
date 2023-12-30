@@ -10,7 +10,7 @@
 
 This repository provides the implement of common `Motion planning` algorithm, welcome your star & fork & PR.
 
-This repository provides the implementation of common Motion Planning algorithms. The theory analysis can be found at [motion-planning](https://blog.csdn.net/frigidwinter/category_11410243.html). Furthermore, we provide [ROS C++](https://github.com/ai-winter/ros_motion_planning) and [Python](https://github.com/ai-winter/python_motion_planning) version.
+This repository provides the implementation of common Motion Planning algorithms. The theory analysis can be found at [motion-planning](https://blog.csdn.net/frigidwinter/category_11410243.html). Furthermore, we provide [ROS C++](https://github.com/ai-winter/ros_motion_planning) and [Python](https://github.com/ai-winter/matlab_motion_planning) version.
 
 
 # Quick Start
@@ -112,6 +112,17 @@ Planner      |    Version    | Animation
 | **PSO** | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 | **ABC** | ![Status](https://img.shields.io/badge/develop-v1.0-red) | ![Status](https://img.shields.io/badge/gif-none-yellow) 
 
+
+## Curve Generation
+
+| Planner | Version   | Animation                                |
+| ------- | -------------------------------------------------------- | -------------------------------------------------------- 
+| **Polynomia** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/polynomial_curve.m) | ![polynomial_curve_matlab.png](gif/polynomial_curve_matlab.gif)
+<!-- | **Bezier** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/bezier_curve.m) | ![bezier_curve_matlab.png](gif/bezier_curve_matlab.png)
+| **Cubic Spline** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/cubic_spline.m) | ![cubic_spline_matlab.png](gif/cubic_spline_matlab.png)
+| **BSpline** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/bspline_curve.m) | ![bspline_curve_matlab.png](gif/bspline_curve_matlab.png)
+| **Dubins** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/dubins_curve.m) | ![dubins_curve_matlab.png](gif/dubins_curve_matlab.png)
+| **Reeds-Shepp** | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/curve_generation/reeds_shepp.m) | ![reeds_shepp_matlab.png](gif/reeds_shepp_matlab.gif) -->
 
 # Papers
 ## Search-based Planning
