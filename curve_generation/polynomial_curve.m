@@ -1,4 +1,9 @@
 function path = polynomial_curve(points)
+% @file: polynomial_curve.m
+% @breif: Polynomial curce generation
+% @author: Winter
+% @update: 2023.12.30
+
     % parameters
     param.max_acc = 1.0;    % Maximum acceleration
     param.max_jerk = 0.5;   % Maximum jerk
@@ -31,6 +36,7 @@ function path = polynomial_curve(points)
     end
 end
 
+%%
 function path = generation(start_state, goal_state, param)
     sx = start_state(1); gx = goal_state(1);
     sy = start_state(2); gy = goal_state(2);
