@@ -9,7 +9,7 @@ function path = bspline_curve(points)
     param.order = 3;
     param.param_mode = "PARAM_MODE_CENTRIPETAL";
     param.spline_mode = "SPLINE_MODE_INTERPOLATION";
-    param.spline_mode = "SPLINE_MODE_APPROXIMATION";
+
     % generate curve
     parameters = paramSelection(points, param);
     knot = knotGeneration(parameters, length(parameters), param);
