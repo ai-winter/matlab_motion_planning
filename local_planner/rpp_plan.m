@@ -47,8 +47,7 @@ function [pose, traj, flag] = rpp_plan(start, goal, varargin)
     param.max_w_inc = pi / 2;
     param.max_w = pi / 2;
     param.min_w = 0.0;
-    
-    
+   
     % return value
     flag = false;
     pose = [];
