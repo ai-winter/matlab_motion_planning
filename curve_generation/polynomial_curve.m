@@ -1,6 +1,6 @@
 function path = polynomial_curve(points)
 % @file: polynomial_curve.m
-% @breif: Polynomial curce generation
+% @breif: Polynomial curve generation
 % @author: Winter
 % @update: 2023.12.30
 
@@ -9,8 +9,8 @@ function path = polynomial_curve(points)
     param.max_jerk = 0.5;   % Maximum jerk
     param.t_min = 1;
     param.t_max = 30;
-    param.step = 2;
-    param.dt = 0.1;
+    param.step = 0.1;
+    param.max_curv = 0.25;
     
     [num_pts, ~] = size(points);
 
