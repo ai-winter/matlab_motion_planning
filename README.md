@@ -98,6 +98,7 @@ Planner      |    Version    | Animation
 | ------- | -------------------------------------------------------- | -------------------------------------------------------- | 
 | **PID**   | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/pid_plan.m) | ![pid_matlab.gif](gif/pid_matlab.gif)
 |   **LQR**   |     [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/lqr_plan.m)     | ![lqr_matlab.gif](gif/lqr_matlab.gif)
+|   **MPC**   |     [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/mpc_plan.m)     | ![mpc_matlab.gif](gif/mpc_matlab.gif)
 | **APF**   | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/apf_plan.m) | ![apf_matlab.gif](gif/apf_matlab.gif) 
 | **DWA**  | [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/dwa_plan.m) | ![dwa_matlab.gif](gif/dwa_matlab.gif)
 |   **RPP**   |     [![Status](https://img.shields.io/badge/done-v1.0-brightgreen)](https://github.com/ai-winter/matlab_motion_planning/blob/master/local_planner/rpp_plan.m)     | ![rpp_matlab.gif](gif/rpp_matlab.gif)
